@@ -88,29 +88,12 @@
                     <div class="product-filter">
                       <h6 class="f-w-600">Category</h6>
                       <div class="checkbox-animated mt-0">
-                        <label class="d-block" for="edo-ani5">
-                          <input class="radio_animated" id="edo-ani5" type="radio" data-original-title="" title="">Man
-                          Shirt
-                        </label>
-                        <label class="d-block" for="edo-ani6">
-                          <input class="radio_animated" id="edo-ani6" type="radio" data-original-title="" title="">Man
-                          Jeans
-                        </label>
-                        <label class="d-block" for="edo-ani7">
-                          <input class="radio_animated" id="edo-ani7" type="radio" data-original-title="" title="">Woman
-                          Top
-                        </label>
-                        <label class="d-block" for="edo-ani8">
-                          <input class="radio_animated" id="edo-ani8" type="radio" data-original-title="" title="">Woman
-                          Jeans
-                        </label>
-                        <label class="d-block" for="edo-ani9">
-                          <input class="radio_animated" id="edo-ani9" type="radio" data-original-title="" title="">Man
-                          T-shirt
+                        <label *ngFor="let category of categories; let i = index" class="d-block" for="edo-ani5">
+                          <a [routerLink]="['']" [queryParams]="{cat:category?.categoryId}">{{category?.name}}</a>
                         </label>
                       </div>
                     </div>
-                    <div class="product-filter">
+                    <!--<div class="product-filter">
                       <h6 class="f-w-600">Brand</h6>
                       <div class="checkbox-animated mt-0">
                         <label class="d-block" for="chk-ani">
@@ -155,9 +138,11 @@
                         </ul>
                       </div>
                     </div>
-                    <div class="product-filter text-center"><img class="img-fluid banner-product"
+                    <div class="product-filter text-center">
+                      <img class="img-fluid banner-product"
                                                                  src="assets/images/ecommerce/banner.jpg" alt=""
-                                                                 data-original-title="" title=""></div>
+                                                                 data-original-title="" title="">
+                    </div>-->
                   </div>
                 </div>
               </div>
@@ -177,20 +162,15 @@
     <div class="product-wrapper-grid" [class.list-view]="listView">
       <div class="col-md-12">
         <div class="row">
-          <div [class]="'col-xl-'+col+' col-sm-'+col" [class.col-xl-12]="listView">
+          <div *ngFor="let item of items; let i = index  " [class]="'col-xl-'+col+' col-sm-'+col"
+               [class.col-xl-12]="listView">
             <div class="card">
               <div class="product-box">
                 <div class="product-img"><img class="img-fluid" src="assets/images/ecommerce/01.jpg" alt="">
                   <div class="product-hover">
                     <ul>
-                      <li>
+                      <li (click)="addCartItem(item)">
                         <button class="btn" type="button"><i class="icon-shopping-cart"></i></button>
-                      </li>
-                      <li>
-                        <!--                      <button class="btn" type="button" (click)="QuickView.openModal()"><i class="icon-eye"></i></button>-->
-                      </li>
-                      <li>
-                        <button class="btn" type="button"><i class="icofont icofont-law-alt-2"></i></button>
                       </li>
                     </ul>
                   </div>
@@ -198,138 +178,10 @@
                 <div class="product-details">
                   <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                     class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                  <h4>Man's Shirt</h4>
+                  <h4>{{item?.name}}</h4>
                   <p>Simply dummy text of the printing.</p>
-                  <div class="product-price">$26.00
-                    <del>$350.00</del>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div [class]="'col-xl-'+col+' col-sm-'+col" [class.col-xl-12]="listView">
-            <div class="card">
-              <div class="product-box">
-                <div class="product-img">
-                  <div class="ribbon ribbon-danger">Sale</div>
-                  <img class="img-fluid" src="assets/images/ecommerce/02.jpg" alt="">
-                  <div class="product-hover">
-                    <ul>
-                      <li>
-                        <button class="btn" type="button"><i class="icon-shopping-cart"></i></button>
-                      </li>
-                      <li>
-                        <!--                      <button class="btn" type="button" (click)="QuickView.openModal()"><i class="icon-eye"></i></button>-->
-                      </li>
-                      <li>
-                        <button class="btn" type="button"><i class="icofont icofont-law-alt-2"></i></button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product-details">
-                  <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                    class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                  <h4>Woman T-shirt</h4>
-                  <p>Simply dummy text of the printing.</p>
-                  <div class="product-price">$26.00
-                    <del>$350.00</del>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div [class]="'col-xl-'+col+' col-sm-'+col" [class.col-xl-12]="listView">
-            <div class="card">
-              <div class="product-box">
-                <div class="product-img">
-                  <div class="ribbon ribbon-danger">Sale</div>
-                  <img class="img-fluid" src="assets/images/ecommerce/02.jpg" alt="">
-                  <div class="product-hover">
-                    <ul>
-                      <li>
-                        <button class="btn" type="button"><i class="icon-shopping-cart"></i></button>
-                      </li>
-                      <li>
-                        <!--                      <button class="btn" type="button" (click)="QuickView.openModal()"><i class="icon-eye"></i></button>-->
-                      </li>
-                      <li>
-                        <button class="btn" type="button"><i class="icofont icofont-law-alt-2"></i></button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product-details">
-                  <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                    class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                  <h4>Woman T-shirt</h4>
-                  <p>Simply dummy text of the printing.</p>
-                  <div class="product-price">$26.00
-                    <del>$350.00</del>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div [class]="'col-xl-'+col+' col-sm-'+col" [class.col-xl-12]="listView">
-            <div class="card">
-              <div class="product-box">
-                <div class="product-img">
-                  <div class="ribbon ribbon-danger">Sale</div>
-                  <img class="img-fluid" src="assets/images/ecommerce/02.jpg" alt="">
-                  <div class="product-hover">
-                    <ul>
-                      <li>
-                        <button class="btn" type="button"><i class="icon-shopping-cart"></i></button>
-                      </li>
-                      <li>
-                        <!--                      <button class="btn" type="button" (click)="QuickView.openModal()"><i class="icon-eye"></i></button>-->
-                      </li>
-                      <li>
-                        <button class="btn" type="button"><i class="icofont icofont-law-alt-2"></i></button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product-details">
-                  <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                    class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                  <h4>Woman T-shirt</h4>
-                  <p>Simply dummy text of the printing.</p>
-                  <div class="product-price">$26.00
-                    <del>$350.00</del>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div [class]="'col-xl-'+col+' col-sm-'+col" [class.col-xl-12]="listView">
-            <div class="card">
-              <div class="product-box">
-                <div class="product-img">
-                  <div class="ribbon ribbon-danger">Sale</div>
-                  <img class="img-fluid" src="assets/images/ecommerce/02.jpg" alt="">
-                  <div class="product-hover">
-                    <ul>
-                      <li>
-                        <button class="btn" type="button"><i class="icon-shopping-cart"></i></button>
-                      </li>
-                      <li>
-                        <!--                      <button class="btn" type="button" (click)="QuickView.openModal()"><i class="icon-eye"></i></button>-->
-                      </li>
-                      <li>
-                        <button class="btn" type="button"><i class="icofont icofont-law-alt-2"></i></button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="product-details">
-                  <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                    class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                  <h4>Woman T-shirt</h4>
-                  <p>Simply dummy text of the printing.</p>
-                  <div class="product-price">$26.00
-                    <del>$350.00</del>
+                  <div class="product-price">Rs{{item?.unitPrice}}
+<!--                    <del>$350.00</del>-->
                   </div>
                 </div>
               </div>

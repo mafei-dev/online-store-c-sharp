@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12 products-total text-right pull-right" style="margin-top: 10px;margin-left: 10px">
+  <div class="col-md-12 products-total text-right pull-right" style="margin-top: 10px;margin-left: 25px">
     <!--<button class="btn btn-sm btn-primary" style="margin-left: 5px; font-size: 5px">
       <app-feather-icons [icon]="'user'"></app-feather-icons>
     </button>-->
@@ -17,7 +17,8 @@
     <!--          </button>-->
   </div>
 </div>
-
+<br>
+<br>
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
@@ -40,22 +41,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <tr *ngFor="let item of cartItems; let i = index">
                   <td><img class="img-fluid img-40" src="assets/images/product/1.png" alt="#"></td>
                   <td>
-                    <div class="product-name"><a href="javascript:void(0);">Long Top</a></div>
+                    <div class="product-name"><a href="javascript:void(0);">{{item.name}}</a></div>
                   </td>
-                  <td>$21</td>
+                  <td>Rs {{item?.unitPrice}}</td>
                   <td>
                     <div class="qty-box">
                       <div class="input-group"><span class="input-group-prepend">
-                            <button class="btn quantity-left-minus" type="button" data-type="minus"><svg
+                            <button (click)="updateQTY(-1,item)" class="btn quantity-left-minus" type="button"
+                                    data-type="minus"><svg
                               xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                               class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></span>
-                        <input class="form-control input-number" type="text" name="quantity" value="1"
+                        <input disabled class="form-control input-number" type="text" name="itemQty"
+                               [ngModel]="item.itemQty"
                                data-original-title="" title=""><span class="input-group-prepend">
-                            <button class="btn quantity-right-plus" type="button" data-type="plus"><svg
+                            <button (click)="updateQTY(1,item)" class="btn quantity-right-plus" type="button"
+                                    data-type="plus"><svg
                               xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                               class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5"
@@ -65,66 +69,8 @@
                       </div>
                     </div>
                   </td>
-                  <td><i data-feather="x-circle"></i></td>
-                  <td>$12456</td>
-                </tr>
-                <tr>
-                  <td><img class="img-fluid img-40" src="assets/images/product/13.png" alt="#"></td>
-                  <td>
-                    <div class="product-name"><a href="javascript:void(0);">Fancy watch</a></div>
-                  </td>
-                  <td>$50</td>
-                  <td>
-                    <div class="qty-box">
-                      <div class="input-group"><span class="input-group-prepend">
-                            <button class="btn quantity-left-minus" type="button" data-type="minus"><svg
-                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                              class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button></span>
-                        <input class="form-control input-number" type="text" name="quantity" value="1"
-                               data-original-title="" title=""><span class="input-group-prepend">
-                            <button class="btn quantity-right-plus" type="button" data-type="plus"><svg
-                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                              class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5"
-                                                                                                             y1="12"
-                                                                                                             x2="19"
-                                                                                                             y2="12"></line></svg></button></span>
-                      </div>
-                    </div>
-                  </td>
-                  <td><i data-feather="x-circle"></i></td>
-                  <td>$12456</td>
-                </tr>
-                <tr>
-                  <td><img class="img-fluid img-40" src="assets/images/product/4.png" alt="#"></td>
-                  <td>
-                    <div class="product-name"><a href="javascript:void(0);">Man shoes</a></div>
-                  </td>
-                  <td>$11</td>
-                  <td>
-                    <div class="qty-box">
-                      <div class="input-group"><span class="input-group-prepend">
-                            <button class="btn quantity-left-minus" type="button" data-type="minus">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                   fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                   stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19"
-                                                                                               y2="12"></line></svg>
-                            </button></span>
-                        <input class="form-control input-number" type="text" name="quantity" value="1"
-                               data-original-title="" title=""><span class="input-group-prepend">
-                            <button class="btn quantity-right-plus" type="button" data-type="plus"><svg
-                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                              class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5"
-                                                                                                             y1="12"
-                                                                                                             x2="19"
-                                                                                                             y2="12"></line></svg></button></span>
-                      </div>
-                    </div>
-                  </td>
-                  <td><i data-feather="x-circle"></i></td>
-                  <td>$12456</td>
+                  <td (click)="_removeItem(item)"><i   style="cursor: pointer" data-feather="x-circle"></i></td>
+                  <td>Rs {{item?.unitPrice * item?.itemQty}}</td>
                 </tr>
                 <tr>
                   <td colspan="4">
@@ -133,11 +79,11 @@
                   <td class="total-amount">
                     <h6 class="m-0 text-right"><span class="f-w-600">Total Price :</span></h6>
                   </td>
-                  <td><span>$6935.00  </span></td>
+                  <td><span>Rs {{total}}</span></td>
                 </tr>
                 <tr>
                   <td class="text-right" colspan="5"><a class="btn btn-secondary cart-btn-transform"
-                                                        href="javascript:void(0);">continue shopping</a></td>
+                                                        routerLink="/">continue shopping</a></td>
                   <td><a class="btn btn-success cart-btn-transform" href="">check out</a></td>
                 </tr>
                 </tbody>

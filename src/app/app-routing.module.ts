@@ -7,6 +7,7 @@ import {content} from './shared/routes/routes';
 import {ProductComponent} from './components/product/product.component';
 import {CartComponent} from './components/cart/cart.component';
 import {UserComponent} from './components/user/user.component';
+import {CheckoutComponent} from './components/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,13 @@ const routes: Routes = [
     component: UserComponent,
     pathMatch: 'full'
   },
+
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    pathMatch: 'full'
+  },
+
 
   {
     path: '**',

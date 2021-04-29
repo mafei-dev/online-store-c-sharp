@@ -21,6 +21,7 @@ import {AppComponent} from './app.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserComponent } from './components/user/user.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,7 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     CartComponent,
     HeaderComponent,
-    UserComponent
+    UserComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
