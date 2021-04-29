@@ -74,7 +74,7 @@ export class CartComponent implements OnInit {
   }
 
   placeOrder() {
-    this.router.navigate(['/user']);
+    this.router.navigate(['/checkout']);
 
   }
 }

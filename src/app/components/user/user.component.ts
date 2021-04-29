@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {NgbActiveModal, NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
+import {OrderDetailComponent} from '../order-detail/order-detail.component';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +11,9 @@ import {environment} from '../../../environments/environment';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, config: NgbModalConfig, private modalService: NgbModal) {
+    config.backdrop = 'static';
+    config.keyboard = false;
   }
 
   orderList = [];
@@ -59,4 +63,13 @@ export class UserComponent implements OnInit {
     );
   }
 
+  updateUserProfile() {
+
+  }
+
+
+  openModal(order) {
+    const modalRef = this.modalService.open(OrderDetailComponent, {size: 'lg', centered: true});
+    modalRef.componentInstance.orderId = order.orderId;
+  }
 }

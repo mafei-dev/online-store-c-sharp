@@ -1,0 +1,47 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="login-card">
+        <div>
+          <div>
+            <a class="logo" routerLink='/'>
+              <img class="img-fluid for-light" src="assets/images/logo/logo.png" alt="looginpage">
+              <img class="img-fluid for-dark" src="assets/images/logo/logo.png" alt="looginpage">
+            </a>
+          </div>
+          <div class="login-main">
+            <form class="theme-form" [noValidate]="false" (submit)="login()">
+              <h4>Sign in to account</h4>
+              <p>Enter your email & password to login</p>
+              <div class="form-group">
+                <label class="col-form-label">Email Address</label>
+                <input class="form-control" type="email" required [(ngModel)]="loginData.email"
+                       placeholder="app@yourmail.com">
+              </div>
+              <div class="form-group">
+                <label class="col-form-label">Password</label>
+                <input class="form-control" [type]="show ? 'text' : 'password'" name="password" required
+                       [(ngModel)]="loginData.password"
+                       placeholder="*********">
+                <div class="show-hide" (click)="showPassword()" *ngIf="!show"><span class="show"></span></div>
+                <div class="show-hide" (click)="showPassword()" *ngIf="show"><span class="Hide"></span></div>
+              </div>
+              <div class="form-group mb-0">
+                <!--<div class="checkbox p-0">
+                  <input id="checkbox1" type="checkbox">
+                  <label class="text-muted" for="checkbox1">Remember password</label>
+                </div>-->
+                <!--                <a [routerLink]="'/authentication/forgot-password'" class="link">Forgot password?</a>-->
+                <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+              </div>
+
+              <p class="mt-4 mb-0">Don't have account?
+                <a [routerLink]="'/register'" class="ml-2">Create Account</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

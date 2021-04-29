@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12 col-xl-12">
+    <!--<div class="col-sm-12 col-xl-12">
       <div class="card">
         <div class="card-header">
           <h5>User
@@ -41,6 +41,81 @@
               load more
             </a>
           </div>
+        </div>
+      </div>
+    </div>-->
+
+    <div class="col-sm-12 col-xl-12">
+      <div class="card">
+        <!-- <div class="card-header">
+           <h5>User</h5>
+         </div>-->
+        <div class="card-body">
+          <ngb-tabset type="pills">
+            <ngb-tab title="User profile">
+              <ng-template ngbTabContent>
+                <form [noValidate]="false" (ngSubmit)="updateUserProfile()">
+                  <div class="row">
+                    <div class="form-group col-sm-12">
+                      <label for="inputEmail4">First Name</label>
+                      <input required [ngModel]="userDetail?.name" name="name" class="form-control" id="inputEmail4"
+                             type="text">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-sm-6">
+                      <label for="inputEmail5">Phone</label>
+                      <input required [ngModel]="userDetail?.contactNo" name="contactNo" class="form-control"
+                             id="inputEmail5"
+                             type="tel">
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label for="inputPassword7">Email Address</label>
+                      <input required [ngModel]="userDetail?.email" name="email" class="form-control"
+                             id="inputPassword7"
+                             type="email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress5">Address</label>
+                    <textarea required [ngModel]="userDetail?.address" name="address" id="inputAddress5" cols="30"
+                              rows="10"
+                              class="form-control"></textarea>
+                  </div>
+
+                  <div>
+                    <button class="btn btn-primary pull-right" type="submit">Update</button>
+                  </div>
+                </form>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Order History">
+              <ng-template ngbTabContent>
+                <div class="list-group">
+                  <a (click)="openModal(order)" *ngFor="let order of orderList; let i = index"
+                     class="list-group-item list-group-item-action flex-column align-items-start"
+                     href="javascript:void(0)">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">DATE - {{order?.date}}</h5><small>Rs {{order?.amount}}</small>
+                    </div>
+                    <br>
+                    <label>Order Status : <b>{{order?.orderStatus}}</b></label>
+                    <br>
+                    <label>Amount : <b>Rs {{order?.amount}}</b></label>
+                    <br>
+                    <label>Payment Status : <b>{{order?.paymentStatus}}</b></label>
+                    <br>
+                    <label>Order Id : <b>{{order?.orderId}}</b></label>
+
+                  </a>
+                  <a class="list-group-item list-group-item-action flex-column align-items-start text-center"
+                     href="javascript:void(0)">
+                    load more
+                  </a>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
         </div>
       </div>
     </div>

@@ -1,0 +1,91 @@
+<div class="modal-header">
+  <h4 class="modal-title">Order #{{orderId}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+
+  <div class="row">
+    <div class="col-sm-12 col-xl-12">
+
+      <div class="table-responsive">
+        <table class="table table-bordernone">
+
+          <tbody>
+          <tr>
+            <td>
+              Order Date and time
+            </td>
+            <td>
+              <b>{{orderedDetail.date}}</b>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+              Amount
+            </td>
+            <td>
+              <b>Rs {{orderedDetail.amount}}</b>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Order State
+            </td>
+            <td>
+              <b>{{orderedDetail.orderStatus}}</b>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Payment State
+            </td>
+            <td>
+              <b>{{orderedDetail.paymentStatus}}</b>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+
+    <div class="col-md-12" style="margin-top: 10px; height: 100%">
+      <div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Retail Price</th>
+              <th scope="col">QTY</th>
+              <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of orderedDetail.detailList; let i = index">
+              <td>#{{i + 1}}</td>
+              <td>{{item?.name}}</td>
+              <td>{{item?.price}}</td>
+              <td>{{item?.qty}}</td>
+              <td>{{item?.price * item?.qty}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
