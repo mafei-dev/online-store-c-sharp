@@ -3,30 +3,11 @@
 <div class="container-fluid product-wrapper" [class.sidebaron]="openSidebar">
   <div class="product-grid">
     <div class="feature-products">
-      <div class="row">
-        <div class="col-md-12 products-total text-right pull-right" style="margin-top: 10px;margin-left: 10px">
-          <!--<button class="btn btn-sm btn-primary" style="margin-left: 5px; font-size: 5px">
-            <app-feather-icons [icon]="'user'"></app-feather-icons>
-          </button>-->
-          <!--          <button class="btn btn-sm btn-primary" style="margin-left: 5px; font-size: 5px">-->
-          <a routerLink="/">
-            <app-feather-icons style="margin-left: 5px;" [icon]="'home'"></app-feather-icons>
-          </a>
-          <a routerLink="/user">
-            <app-feather-icons style="margin-left: 5px;" [icon]="'user'"></app-feather-icons>
-          </a>
-          <a routerLink="/cart">
-
-            <app-feather-icons style="margin-left: 5px;" [icon]="'shopping-bag'"></app-feather-icons>
-          </a>
-          <!--          </button>-->
-        </div>
-      </div>
 
       <div class="row">
 
         <div class="col-md-6 products-total">
-          <div class="square-product-setting d-inline-block" (click)="toggleListView(false)">
+          <!--<div class="square-product-setting d-inline-block" (click)="toggleListView(false)">
             <a class="icon-grid grid-layout-view" href="javascript:void(0);">
               <i data-feather="grid"></i>
             </a>
@@ -35,7 +16,7 @@
             <a class="icon-grid m-0 list-layout-view" href="javascript:void(0);">
               <i data-feather="list"></i>
             </a>
-          </div>
+          </div>-->
           <span class="d-none-productlist filter-toggle">
                 Filters
               <span class="ml-2">
@@ -64,7 +45,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-6 text-right"><span class="f-w-600 m-r-5">Showing Products 1 - 24 Of 200 Results</span>
+        <div class="col-md-6 text-right"><span class="f-w-600 m-r-5"></span>
           <div class="select2-drpdwn-product select-options d-inline-block">
             <select class="form-control btn-square" name="select">
               <option value="opt1">Featured</option>

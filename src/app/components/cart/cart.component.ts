@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -9,14 +11,12 @@ export class CartComponent implements OnInit {
 
   cartItems = [];
 
-  constructor() {
+  constructor(private http: HttpClient, private router: Router) {
+
   }
 
   ngOnInit(): void {
     this.updateCart();
-    /*   cartOb.map(cartItem => {
-
-       });*/
   }
 
   updateCart() {
@@ -71,5 +71,10 @@ export class CartComponent implements OnInit {
     localStorage.removeItem('cart');
     localStorage.setItem('cart', JSON.stringify(cartOb));
     this.updateCart();
+  }
+
+  placeOrder() {
+    this.router.navigate(['/user']);
+
   }
 }
